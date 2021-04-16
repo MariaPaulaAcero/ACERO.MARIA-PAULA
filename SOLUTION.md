@@ -1,3 +1,10 @@
+# EXTENDIENDO
+![img_2.png](img_2.png)
+
+Al ser la actividad dependiente de una iteración y otra actividad, ya no tendría sentido que esta clase fuera abstracta por lo que dejaría de serlo y pasaría a depender de las clases antes mencionadas.
+
+Lo malo es que al antes tener una clase abstracta esta ya tenía una funcionalidad común con las clases iteración y con otras posibles actividades
+
 # DISEÑANDO
 
 ![img_1.png](img_1.png)
