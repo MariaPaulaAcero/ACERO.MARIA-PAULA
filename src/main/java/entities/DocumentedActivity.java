@@ -1,6 +1,5 @@
 package entities;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class DocumentedActivity extends Activity {
     }
 
     @Override
-    public Duration getDuration() {
+    public int getDuration() {
         return null;
     }
 }

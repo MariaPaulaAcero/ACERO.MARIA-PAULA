@@ -1,6 +1,6 @@
 package entities;
 
-import java.time.Duration;
+import java.util.List;
 
 public abstract class Activity {
 
@@ -8,6 +8,7 @@ public abstract class Activity {
     public static final String CLOSED_STATE = "closed";
     public static final String PENDING_STATE = "pending";
     public static final String CANCELED_STATE = "canceled";
+    private List<Activity> activities;
 
     private String name;
     private String state;
@@ -37,9 +38,9 @@ public abstract class Activity {
      *
      * @return
      */
-    public Duration getDuration(){
-
-        return Duration.ofDays(0);
+    public int getDuration(){
+        final int Duration = (int) this.activities.stream().map(p -> p.getDuration()).filter(b -> isActive()).count();
+        return Duration;
 
     }
 
