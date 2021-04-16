@@ -38,10 +38,11 @@ public abstract class Activity {
      *
      * @return
      */
-    public int getDuration(){
+    public int getDuration() throws SabanaResearchException {
         final int Duration = (int) this.activities.stream().map(p -> p.getDuration()).filter(b -> isActive()).count();
         return Duration;
 
     }
 
+    protected abstract int countOpenActivities();
 }
