@@ -18,6 +18,6 @@ public class NormalActivity extends Activity {
 
     @Override
     public int getDuration() {
-        return null;
+        return 0;
     }
 }

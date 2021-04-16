@@ -32,7 +32,7 @@ public class Project {
         for(Iteration i: this.iterations) {
             count += i.countOpenActivities();
         if(count <=0){
-            throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_PROJECT);
+            throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_ITERATION);
         }
 
 
