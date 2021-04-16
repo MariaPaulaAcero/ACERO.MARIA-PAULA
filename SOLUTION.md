@@ -1,3 +1,6 @@
+# CODIGO
+![img_3.png](img_3.png)
+
 # EXTENDIENDO
 ![img_2.png](img_2.png)
 
