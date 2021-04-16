@@ -1,5 +1,8 @@
+# DISEÑANDO
 
-#CONCEPTOS
+![img_1.png](img_1.png)
+
+# CONCEPTOS
 
 ## ¿Cuáles son las acciones los tres momentos importantes de las excepciones? ¿Cuál es el objetivo de cada una? ¿Cómo se implementa en Java cada acción?.
 Los tres momentos de las excepciones son:
@@ -29,4 +32,6 @@ La sobreescritura de métodos es la forma en la que podemos cambiar o redefinir 
 
 La aplicamos para que un método sea mas especifico a lo que queremos realizar y extender su funcionalidad, es decir si quiero que un determinado método me permita hacer algo en concreto para una clase hija tendría que sobrescribirlo de lo contrario tendría que hacerlo en la clase padre, lo cual se modificaría para todas las demás clases que estén heredando de dicha clase padre.
 
- ¿Cómo impedir que se sobre-escriba un método?.impedir que se sobre-escriba un método?.
+¿Cómo impedir que se sobre-escriba un método?.impedir que se sobre-escriba un método?.
+
+Lo que puede impedir que un método se sobre escriba es que no esté heredándolo de su clase padre.
