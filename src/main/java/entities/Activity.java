@@ -37,6 +37,10 @@ public abstract class Activity {
      *
      * @return
      */
-    public abstract Duration getDuration();
+    public Duration getDuration(){
+
+        return Duration.ofDays(0);
+
+    }
 
 }
