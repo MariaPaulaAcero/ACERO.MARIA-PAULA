@@ -9,11 +9,20 @@ public class Question {
 
     private String difficulty;
     private String description;
+
+    public Question(Duration dedication) {
+        this.dedication = dedication;
+    }
+
     private Duration dedication;
 
     public Question(String difficulty, String description, Duration dedication) {
         this.difficulty = difficulty;
         this.description = description;
         this.dedication = dedication;
+    }
+
+    public Duration getDedication() {
+        return dedication;
     }
 }

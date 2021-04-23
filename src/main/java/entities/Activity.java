@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.Duration;
 import java.util.List;
 
 public abstract class Activity {
@@ -38,11 +39,6 @@ public abstract class Activity {
      *
      * @return
      */
-    public int getDuration() throws SabanaResearchException {
-        final int Duration = (int) this.activities.stream().map(p -> p.getDuration()).filter(b -> isActive()).count();
-        return Duration;
+    public abstract Duration getDuration() throws SabanaResearchException ;
 
-    }
-
-    protected abstract int countOpenActivities();
 }

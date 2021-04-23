@@ -1,10 +1,12 @@
 package entities;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Iteration {
 
+    public Duration getDuration;
     private String goal;
     private Project project;
     private List<Activity> activities;
@@ -21,7 +23,15 @@ public class Iteration {
         this.activities.add(activity);
     }
 
-    public int countOpenActivities() {
-        return 0;
+
+    public Duration getDuration() throws SabanaResearchException {
+        Duration duration1=Duration.ZERO;
+        if(this.activities.isEmpty()){
+            throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_ITERATION);
+        }
+        for(Activity a:this.activities){
+            duration1=duration1.plusDays(a.getDuration().toDays());
+        }
+        return duration1;
     }
 }

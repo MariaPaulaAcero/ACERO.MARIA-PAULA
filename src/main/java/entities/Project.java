@@ -27,18 +27,17 @@ public class Project {
         this.iterations.add(iteration);
     }
 
+
     public Duration getDuration() throws SabanaResearchException {
-        int count = 0;
-        for(Iteration i: this.iterations) {
-            count += i.countOpenActivities();
-        if(count <=0){
-            throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_ITERATION);
-        }
 
+            if (this.iterations.isEmpty())
+                throw new SabanaResearchException(SabanaResearchException.BAD_FORMED_PROJECT);
+            Duration d = Duration.ZERO;
+            for (Iteration i : this.iterations) {
+                d = d.plus(i.getDuration());
+            }
+            return d;
 
-        }
-
-        return Duration.ofDays(0);
     }
 
 
