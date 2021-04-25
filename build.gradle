@@ -1,5 +1,8 @@
 plugins {
     id 'java'
+    id 'org.sonarqube' version '3.1.1'
+    id 'jacoco'
+
 }
 
 group 'sabana.poob'
@@ -24,3 +27,23 @@ test {
         events "passed", "skipped", "failed"
     }
 }
+
+sonarqube{
+    properties{
+        property 'sonar.host.url','http://localhost:9000/'
+        property 'sonar.projectName','MARIA PAULA ACERO -SABANA RESEARCH'
+        property 'sonar.projectKey','sabana.poob:gradle-multimodule'
+        property 'sonar.sourceEncoding','UTF-8'
+
+    }
+}
+jacocoTestReport{
+    reports{
+        xml.enable true
+    }
+}
+
+
+
+test.finalizedBy jacocoTestReport
+
