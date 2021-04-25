@@ -17,6 +17,7 @@
 
 # DISEÑO PRIMER PARCIAL
 ![img_13.png](img_13.png)
+![Untitled Diagram (4)](https://user-images.githubusercontent.com/78038428/110182401-afc1fa80-7dda-11eb-9d27-55362921e5c3.png)
 
 #DISEÑO Y EXTENDIENDO SEGUNDO PARCIAL 
 ![img_14.png](img_14.png)
