@@ -15,6 +15,11 @@
 ![img_4.png](img_4.png)
 ![img_5.png](img_5.png)
 
+# DISEÑO PRIMER PARCIAL
+![img_13.png](img_13.png)
+
+#DISEÑO Y EXTENDIENDO SEGUNDO PARCIAL 
+![img_14.png](img_14.png)
 
 # CODIGO
 ![img_3.png](img_3.png)
