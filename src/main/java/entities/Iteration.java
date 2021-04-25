@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Iteration {
 
-    public Duration getDuration;
+    public Duration Duration;
     private String goal;
     private Project project;
     private List<Activity> activities;

@@ -21,7 +21,6 @@ public class DocumentedActivity extends Activity {
     }
 
     public void addDocumentedActivity(DocumentedActivity documentedActivity) {
-
     }
 
     @Override

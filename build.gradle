@@ -30,20 +30,12 @@ test {
 
 sonarqube{
     properties{
-        property 'sonar.host.url','http://localhost:9000/'
+        property 'sonar.host.url','http://01bfe3b36da0.ngrok.io'
         property 'sonar.projectName','MARIA PAULA ACERO -SABANA RESEARCH'
-        property 'sonar.projectKey','sabana.poob:gradle-multimodule'
+        property 'sonar.projectKey','sabana.poob.maria.acero:gradle-multimodule'
         property 'sonar.sourceEncoding','UTF-8'
 
     }
 }
-jacocoTestReport{
-    reports{
-        xml.enable true
-    }
-}
 
-
-
-test.finalizedBy jacocoTestReport
 

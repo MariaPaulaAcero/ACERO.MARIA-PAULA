@@ -1,9 +1,5 @@
 package entities;
-
-import com.sun.org.apache.xpath.internal.objects.XNull;
-
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentSynthesizer implements ISynthesizer{
