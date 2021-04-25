@@ -8,7 +8,6 @@ import java.util.List;
 public class Student {
 
     private ArrayList<Activity>activities=new ArrayList<>();
-    private List<Course> approved = new ArrayList<>();
 
     public ArrayList<Activity> getActivities() {
         return activities;

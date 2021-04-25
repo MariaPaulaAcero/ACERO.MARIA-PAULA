@@ -17,7 +17,6 @@
 
 # DISEÑO PRIMER PARCIAL
 ![img_13.png](img_13.png)
-![Untitled Diagram (4)](https://user-images.githubusercontent.com/78038428/110182401-afc1fa80-7dda-11eb-9d27-55362921e5c3.png)
 
 #DISEÑO Y EXTENDIENDO SEGUNDO PARCIAL 
 ![img_14.png](img_14.png)
@@ -68,4 +67,4 @@ La aplicamos para que un método sea mas especifico a lo que queremos realizar y
 
 ¿Cómo impedir que se sobre-escriba un método?.impedir que se sobre-escriba un método?.
 
-Lo que puede impedir que un método se sobre escriba es que no esté heredándolo de su clase padre.
+la palabra reservada final es lo que evita que se pueda sobreescribir un método.

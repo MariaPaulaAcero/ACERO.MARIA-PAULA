@@ -10,7 +10,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ProjectTest {
+public class ExecutiveSynthesizerTest {
 
     private static Faker faker;
 
@@ -22,7 +22,7 @@ public class ProjectTest {
     private Project badFormedProject5; // Project where a documented activity hasn't normal activity
     private Project badFormedProject6; // Project where a documented activity with normal activity hasn't steps
 
-    public ProjectTest() {
+    public ExecutiveSynthesizerTest() {
 
         faker = new Faker(new Locale("en-US"));
     }
@@ -49,54 +49,6 @@ public class ProjectTest {
         } catch (SabanaResearchException e) {
             fail(e.getMessage());
         }
-    }
-
-    @Test
-    @DisplayName("GIVEN a project without iterations WHEN get duration THEN get SabanaResearchException")
-    public void shouldThrowsSabanaResearchExceptionWhenProjectWithoutIterations() {
-
-        SabanaResearchException exception = assertThrows(SabanaResearchException.class, () -> badFormedProject1.getDuration());
-        assertEquals(SabanaResearchException.BAD_FORMED_PROJECT, exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("GIVEN a iteration without activities WHEN get duration THEN get SabanaResearchException")
-    public void shouldThrowsSabanaResearchExceptionWhenIterationWithoutActivities() {
-
-        SabanaResearchException exception = assertThrows(SabanaResearchException.class, () -> badFormedProject2.getDuration());
-        assertEquals(SabanaResearchException.BAD_FORMED_ITERATION, exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("GIVEN a normal activity without steps WHEN get duration THEN get SabanaResearchException")
-    public void shouldThrowsSabanaResearchExceptionWhenNormalActivityWithputSteps() {
-
-        SabanaResearchException exception = assertThrows(SabanaResearchException.class, () -> badFormedProject3.getDuration());
-        assertEquals(SabanaResearchException.BAD_FORMED_NORMAL_ACTIVITY, exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("GIVEN a documented activity without questions WHEN get duration THEN get SabanaResearchException")
-    public void shouldThrowsSabanaResearchExceptionWhenDocumentedActivityWithoutQuestions() {
-
-        SabanaResearchException exception = assertThrows(SabanaResearchException.class, () -> badFormedProject4.getDuration());
-        assertEquals(SabanaResearchException.BAD_FORMED_DOCUMENTED_ACTIVITY, exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("GIVEN a documented activity without normal activity WHEN get duration THEN get SabanaResearchException")
-    public void shouldThrowsSabanaResearchExceptionWhenDocumentedActivityWithoutNormalActivity() {
-
-        SabanaResearchException exception = assertThrows(SabanaResearchException.class, () -> badFormedProject5.getDuration());
-        assertEquals(SabanaResearchException.BAD_FORMED_DOCUMENTED_ACTIVITY_WITHOUT_NORMAL_QUESTION, exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("GIVEN a documented activity with normal activity without steps WHEN get duration THEN get SabanaResearchException")
-    public void shouldThrowsSabanaResearchExceptionWhenDocumentedActivityWithNormalActivityWithoutSteps() {
-
-        SabanaResearchException exception = assertThrows(SabanaResearchException.class, () -> badFormedProject6.getDuration());
-        assertEquals(SabanaResearchException.BAD_FORMED_NORMAL_ACTIVITY, exception.getMessage());
     }
 
     private void setupWellFormedProject() {
@@ -226,21 +178,7 @@ public class ProjectTest {
         DocumentedActivity documentedActivity2 = new DocumentedActivity(faker.team().name(), Activity.ACTIVE_STATE, iteration, activity2);
         documentedActivity2.addQuestion(new Question(Question.EASY_QUESTION, faker.team().name(), Duration.ofDays(1)));
     }
-    @Test
-    public void shouldGetDurationActivitiesStudents() throws SabanaResearchException {
-        Student student1=new Student();
-        wellFormedProject.getStudents().add(student1);
-        Activity activities1 = new Activity("Test in humans",Duration.ofDays(3)) {
-            @Override
-            public Duration getDuration() throws SabanaResearchException {
-                return Duration.ofDays(3);
-            }
-        };
-        student1.getActivities().add(activities1);
 
-        assertEquals(Duration.ofDays(3),wellFormedProject.summarize());
-        System.out.println(wellFormedProject.summarize().toDays());
-    }
     @Test
     public void shouldGetDurationActivitiesExecutives() throws SabanaResearchException {
         Iteration iteration1 =new Iteration("pepe",wellFormedProject);
