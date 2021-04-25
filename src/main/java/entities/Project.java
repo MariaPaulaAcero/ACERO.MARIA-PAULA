@@ -11,7 +11,17 @@ public class Project {
     private LocalDate dateInit;
     private LocalDate dateEnd;
     private Group group;
-    private List<Iteration> iterations;
+    private List<Iteration> iterations= new ArrayList<>();
+    private StudentSynthesizer studentSynthesizer=new StudentSynthesizer();
+    private List<Student>students=new ArrayList<>();
+    private ExecutiveSynthesizer executiveSynthesizer= new ExecutiveSynthesizer();
+
+    public List<Student> getStudents() {
+        return students;
+    }
+    public List<Iteration> getIterations() {
+        return iterations;
+    }
 
     public Project(String name, LocalDate dateInit, LocalDate dateEnd, Group group) {
         this.name = name;
@@ -40,5 +50,78 @@ public class Project {
 
     }
 
+    public void setDateEnd(LocalDate dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+    public boolean isActive() {
+        boolean active=true;
+        for(Iteration i:this.iterations){
+            if(i.countOpenActivities()==0||this.dateEnd.isBefore(LocalDate.now())){
+                active=false;
+            }
+        }
+        return active;
+    }
+      /*  boolean isActive = true;
+        if(LocalDate.now().isAfter(this.dateEnd)){
+            isActive = false;
+        }else {
+            int openActivities = this.countOpenActivities();
+            isActive = openActivities >0;
+        }
+        return isActive;
+    }
+       */
+    public int countOpenActivities(){
+        int count = 0;
+        for(Iteration i: this.iterations){
+            count += i.countOpenActivities();
+
+        }
+        return count;
+    }
+    public boolean isClosed() {
+        boolean isClosed = true;
+        if(LocalDate.now().isBefore(this.dateEnd)){
+            isClosed = false;
+        }else {
+            int closedActivities = this.countClosedActivities();
+            isClosed = closedActivities >0;
+        }
+        return isClosed;
+    }
+    public int countClosedActivities(){
+        int count = 0;
+        for(Iteration i: this.iterations){
+            count += i.countClosedActivities();
+
+        }
+        return count;
+    }
+
+    public Duration summarize() throws SabanaResearchException {
+        Duration duration=Duration.ZERO;
+        if(isStudentsSynthesizer()){
+            duration=duration.plusDays(studentSynthesizer.synthesize(students,iterations).toDays());
+        }
+        if(isExecutiveSynthesizer()){
+            duration=duration.plusDays(executiveSynthesizer.synthesize(students,iterations).toDays());
+        }
+        return duration;
+    }
+    public boolean isStudentsSynthesizer(){
+        boolean result=false;
+        if(this.students != null){
+            result=true;
+        }
+        return result;
+    }
+    public boolean isExecutiveSynthesizer(){
+        boolean result=false;
+        if(this.iterations != null){
+            result=true;
+        }
+        return result;
+    }
 
 }

@@ -25,14 +25,25 @@ public abstract class Activity {
         }
     }
 
+    public Activity(String name,Duration duration ) {
+        this.name = name;
+
+
+        if (iteration != null) {
+            this.iteration = iteration;
+            this.iteration.addActivity(this);
+        }
+    }
     /**
      * Evaluate if an activity is active.
      *
      * @return true if the activity is in state pending or active, otherwise return false.
      */
     public boolean isActive() {
-        return false;
+        return this.state.equals(ACTIVE_STATE) || this.state.equals(PENDING_STATE);
+
     }
+
 
     /**
      * Get the duration of the activity.

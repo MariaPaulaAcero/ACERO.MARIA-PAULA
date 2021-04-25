@@ -227,4 +227,34 @@ public class ProjectTest {
         DocumentedActivity documentedActivity2 = new DocumentedActivity(faker.team().name(), Activity.ACTIVE_STATE, iteration, activity2);
         documentedActivity2.addQuestion(new Question(Question.EASY_QUESTION, faker.team().name(), Duration.ofDays(1)));
     }
+    @Test
+    public void shouldGetDurationActivitiesStudents() throws SabanaResearchException {
+        Student student1=new Student();
+        wellFormedProject.getStudents().add(student1);
+        Activity activities1 = new Activity("Test in humans",Duration.ofDays(3)) {
+            @Override
+            public Duration getDuration() throws SabanaResearchException {
+                return Duration.ofDays(3);
+            }
+        };
+        student1.getActivities().add(activities1);
+
+        assertEquals(Duration.ofDays(3),wellFormedProject.summarize());
+        System.out.println(wellFormedProject.summarize().toDays());
+    }
+    @Test
+    public void shouldGetDurationActivitiesExecutives() throws SabanaResearchException {
+        Iteration iteration1 =new Iteration("pepe",wellFormedProject);
+        wellFormedProject.getIterations().add(iteration1);
+        Activity activities1 = new Activity("Test in humans",Duration.ofDays(3)) {
+            @Override
+            public Duration getDuration() throws SabanaResearchException {
+                return Duration.ofDays(3);
+            }
+        };
+        iteration1.getActivities().add(activities1);
+
+        assertEquals(Duration.ofDays(0),wellFormedProject.summarize());
+        System.out.println(wellFormedProject.summarize().toDays());
+    }
 }

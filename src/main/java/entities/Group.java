@@ -13,6 +13,30 @@ public class Group {
         this.projects = new ArrayList<>();
     }
 
+    public int CountActiveProjects() {
+       // return (int) this.projects.stream().map(p->p.isActive()).filter(b->b).count();
+        int count = 0;
+        for (Project p : this.projects) {
+            if (p.isActive()) {
+                count++;
+            }
+
+        }
+        return count;
+
+    }
+    public int countClosedProjects(){
+        int count = 0;
+        for (Project p : this.projects) {
+            if (!p.isActive()) {
+                count++;
+            }
+
+        }
+        return count;
+
+    }
+
     public void addProject(Project plan) {
         this.projects.add(plan);
     }
